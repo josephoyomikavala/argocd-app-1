@@ -35,6 +35,3 @@ spec:
           ports:
             - containerPort: 8080
               name: http
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/config/
