@@ -35,3 +35,14 @@ spec:
           ports:
             - containerPort: 8080
               name: http
+      volumes:
+        - name: config-volume
+          configMap:
+            name: passport-webserver-config
+            items:
+              - key: "passport.webserver.base"
+                path: "base-app-settings.yaml"
+              - key: "passport.webserver.dev"
+                path: "dev-app-settings.yaml"
+              - key: "passport.kafka.base"
+                path: "base-kafka-settings.yaml"
