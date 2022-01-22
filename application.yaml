@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-application
+  labels:
+    app: argo-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argo-application
+  template:
+    metadata:
+      labels:
+        app: argo-application
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: argo-application
+          image: gcr.io/grid-assessor/argo-application-image:$TAG
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argo-application
+spec:
+  selector:
+    app: argo-application
+  ports:
+    - port: 2010
+      targetPort: 2010
+  type: LoadBalancer
