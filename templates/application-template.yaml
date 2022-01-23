@@ -17,7 +17,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: argo-application
-          image: gcr.io/grid-assessor/argo-application-image:$TAG
+          image: 08134696399/argo-application-image:$TAG
           imagePullPolicy: Always
 ---
 apiVersion: v1
